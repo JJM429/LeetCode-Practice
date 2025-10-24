@@ -8,7 +8,7 @@ class Solution:
 
         for r in range(len(s)):
             #add all of the terms to a dictionary to count them
-            countDict.update({ s[r] : 1 + countDict.get(s[r],0) })
+            countDict[s[r]] =  1 + countDict.get(s[r],0) 
 
             #within window check which character is most frequent and expand and shrink window accordingly
             highest_count_char = max(countDict)
@@ -17,7 +17,7 @@ class Solution:
             #if window is too large,
             #slide window and update dict
             if r-l + 1 > k + highest_count:
-                countDict.update({ s[l] : countDict.get(s[l]) - 1 })
+                countDict[s[l]] -= 1
                 l += 1
                 
         return r - l + 1 
